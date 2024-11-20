@@ -21,7 +21,7 @@ resource "aws_backup_plan" "my_back_plan" {
       delete_after = 14
     }
   }
-  
+
 }
 
 resource "aws_backup_selection" "myselection" {
@@ -29,7 +29,21 @@ resource "aws_backup_selection" "myselection" {
   name         = "test_selection"
   plan_id      = aws_backup_plan.my_back_plan.id
 
+
   resources = [
     data.aws_instance.app_server.arn
   ]
+
+  selection_tag {
+    type  = "STRINGEQUALS"
+    key   = "Creator"
+    value = "nkaurelien"
+  }
+
+  selection_tag {
+    type  = "STRINGEQUALS"
+    key   = "Environment"
+    value = "sandbox"
+  }
+
 }

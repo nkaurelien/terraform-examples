@@ -24,7 +24,7 @@ variable "instance_tag_name" {
 
 data "aws_instance" "app_server" {
 
-  instance_id = "i-051cb62df4560aec5"
+  instance_id = "i-057d3ee31bd5db673"
 
   # filter {
   #   name   = "image-id"
