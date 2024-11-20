@@ -27,6 +27,10 @@ variable "key-name" {
   default = "dev/nkaurelien"
 }
 
+variable "root_volume_size" {
+  default = 20 # Size in GiB
+}
+
 # Creating key-pair on AWS using SSH-public key
 resource "aws_key_pair" "deployer" {
   key_name   = var.key-name
@@ -41,12 +45,18 @@ resource "aws_instance" "app_server" {
   security_groups = [aws_security_group.nginx_sg.name]
   key_name        = aws_key_pair.deployer.key_name
 
+  # root_block_device {
+  #   volume_size = var.root_volume_size
+  #   volume_type = "gp2"
+  # }
+
   tags = {
     Name    = var.instance_slug
     Creator = "nkaurelien"
     # Tier = "frontend"
     Environment = "sandbox"
   }
+
 
   user_data = <<EOF
 #!/bin/bash
