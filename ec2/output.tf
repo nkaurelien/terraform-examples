@@ -23,3 +23,16 @@ output "server_host" {
 # output "is_server_associate_public_ip_address" {
 #   value = aws_instance.app_server.associate_public_ip_address
 # }
+
+
+output "key_fingerprint" {
+  value = aws_key_pair.deployer.fingerprint
+}
+
+output "key_name" {
+  value = aws_key_pair.deployer.key_name
+}
+
+output "key_id" {
+  value = aws_key_pair.deployer.id
+}

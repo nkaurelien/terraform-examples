@@ -33,3 +33,29 @@ output "ami_ids" {
   value = { for k, v in data.aws_ami.example : k => v.id }
 }
 ```
+
+# key Pair
+```js
+
+data "aws_key_pair" "example" {
+  key_name           = "test"
+  include_public_key = true
+
+  filter {
+    name   = "tag:Component"
+    values = ["web"]
+  }
+}
+
+output "fingerprint" {
+  value = data.aws_key_pair.example.fingerprint
+}
+
+output "name" {
+  value = data.aws_key_pair.example.key_name
+}
+
+output "id" {
+  value = data.aws_key_pair.example.id
+}
+```
