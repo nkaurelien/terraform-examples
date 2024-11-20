@@ -1,0 +1,1 @@
+https://spacelift.io/blog/terraform-ec2-instance
