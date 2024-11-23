@@ -23,3 +23,8 @@ output "user_name" {
 output "user_arn" {
   value = aws_iam_user.admin_user.arn
 }
+
+# output "nkaurelien_secret" {
+#   value = jsondecode(aws_secretsmanager_secret_version.this.secret_string)["access_key_id"]
+#   sensitive = true
+# }

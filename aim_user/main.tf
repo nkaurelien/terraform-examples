@@ -28,3 +28,8 @@ resource "aws_iam_user_ssh_key" "nkaurelien" {
   public_key = file("${path.module}/ssh-key/nkaurelien.pub")
   # public_key = aws_key_pair.nkaurelien.public_key
 }
+
+resource "aws_iam_access_key" "nkaurelien" {
+  user = aws_iam_user.nkaurelien.name
+  # pgp_key = "keybase:some_person_that_exists"
+}
