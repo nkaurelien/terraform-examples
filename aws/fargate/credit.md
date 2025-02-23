@@ -1,0 +1,2 @@
+- https://erik-ekberg.medium.com/terraform-ecs-fargate-example-1397d3ab7f02
+- https://medium.com/@olayinkasamuel44/using-terraform-and-fargate-to-create-amazons-ecs-e3308c1b9166
